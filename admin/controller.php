@@ -261,3 +261,32 @@ function grafik()
 
    return $counts;
 }
+
+
+function timeAgo($timestamp) {
+   // Ubah menjadi timestamp jika inputnya adalah string tanggal
+   if (!is_numeric($timestamp)) {
+       $timestamp = strtotime($timestamp);
+   }
+
+   $time = time() - $timestamp; // selisih waktu dalam detik
+   $units = [
+       'tahun' => 365*24*60*60,
+       'bulan' => 30*24*60*60,
+       'minggu' => 7*24*60*60,
+       'hari' => 24*60*60,
+       'jam' => 60*60,
+       'menit' => 60,
+       'detik' => 1,
+   ];
+
+   foreach ($units as $unit => $value) {
+       $elapsed = floor($time / $value);
+       if ($elapsed >= 1) {
+           return "$elapsed $unit" . ($elapsed > 1 ? '' : '') . " yang lalu";
+       }
+   }
+
+   return "baru saja";
+}
+

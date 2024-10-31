@@ -2,6 +2,7 @@
 session_start();
 include_once '../controller.php';
 $userAuth = show("user", $_SESSION['user']);
+$notification = all("notifikasi");
 if (!isset($_SESSION['LOGIN']) || $_SESSION['LOGIN'] !== true) {
    header("Location:localhost/perpustakaan-app/admin/login");
 }

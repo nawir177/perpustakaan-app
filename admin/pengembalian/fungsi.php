@@ -60,6 +60,9 @@ function tambah($data)
    $query = "INSERT into pengembalian VALUES('', '$id_peminjaman', '$tanggal_kembali', '$status','$denda')";
    $query2 = "UPDATE peminjaman SET status='dikembalikan' WHERE id ='$id_peminjaman'";
 
+   $idAnggota = show('peminjaman',$id_peminjaman)['id_anggota'];
+
+   setNotification($idAnggota, "Buku dengan judul $buku[judul] telah dikembalikan");
 
    mysqli_query($conn, $qTambahJumlah);
    mysqli_query($conn, $query);
@@ -103,3 +106,16 @@ function cekTanggalPinjaman($tanggal_pinjam, $tanggal_kembali)
       return false;
    }
 }
+
+function setNotification($user, $content)
+{
+   global $conn;
+   $query = "INSERT INTO notifikasi (anggota_id, content, time) VALUES ('$user', '$content', NOW())";
+   $result = mysqli_query($conn, $query);
+   // if ($result) {
+   //    echo "<script>alert('Berhasil menambahkan notifikasi')</script>";
+   // } else {
+   //    echo "<script>alert('Gagal menambahkan notifikasi')</script>";
+   // }
+}
+

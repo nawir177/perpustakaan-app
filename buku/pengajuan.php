@@ -3,6 +3,17 @@ session_start();
 include '../admin/controller.php';
 $user_id = $_SESSION['user'];
 
+function setNotification($user, $content)
+{
+   global $conn;
+   $query = "INSERT INTO notifikasi (anggota_id, content, time) VALUES ('$user', '$content', NOW())";
+   $result = mysqli_query($conn, $query);
+   if (!$result) {
+    echo "<script>alert('Gagal menambahkan notifikasi')</script>";
+   }
+}
+
+
 // Ambil ID dari query string
 $id = $_GET['id'];
 
@@ -37,5 +48,6 @@ if (mysqli_query($conn, $query)) {
   echo "Error: " . mysqli_error($conn);
 }
 
+setNotification($anggota['id'], "Melakukan pengajuan peminjaman dengan judul buku ".show('buku',$id)['judul']);
 // Tutup koneksi database
 mysqli_close($conn);

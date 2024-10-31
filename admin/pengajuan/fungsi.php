@@ -5,6 +5,8 @@ use PHPMailer\PHPMailer\Exception;
 
 require '../../vendor/autoload.php';
 $conn = mysqli_connect('localhost', 'root', '', 'perpustakaan');
+
+
 function tambah($data)
 {
    global $conn;
@@ -20,6 +22,8 @@ function tambah($data)
    mysqli_query($conn, $qKurangBuku);
    mysqli_query($conn, "INSERT INTO peminjaman VALUES('','$id_anggota','$id_buku','$tangga_peminjaman', '$tanggal_kembali','dipinjam')");
    mysqli_query($conn, "DELETE FROM pengajuan where id ='$idPengajuan'");
+
+
    return mysqli_affected_rows($conn);
 }
 

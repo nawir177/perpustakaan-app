@@ -1,4 +1,3 @@
-
 <header id="header" class="navbar navbar-expand-lg navbar-fixed navbar-height navbar-container navbar-bordered " style="background-color: #007020;">
   <div class="navbar-nav-wrap">
     <!-- Logo -->
@@ -28,7 +27,89 @@
       <!-- Navbar -->
       <ul class="navbar-nav">
 
+        <li class="nav-item d-none d-sm-inline-block">
+          <!-- Notification -->
+          <div class="dropdown">
+            <button type="button" class="btn btn-light btn-icon rounded-circle" id="navbarNotificationsDropdown" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside" data-bs-dropdown-animation>
+              <i class="bi-bell"></i>
+              <span class="btn-status btn-sm-status btn-status-danger"></span>
+            </button>
 
+            <div class="dropdown-menu dropdown-menu-end dropdown-card navbar-dropdown-menu navbar-dropdown-menu-borderless" aria-labelledby="navbarNotificationsDropdown" style="width: 25rem;">
+              <div class="card">
+                <!-- Header -->
+                <div class="card-header card-header-content-between">
+                  <h4 class="card-title mb-0">Notifications</h4>
+
+                  <!-- Unfold -->
+                  <div class="dropdown">
+                    <button type="button" class="btn btn-icon btn-sm btn-ghost-secondary rounded-circle" id="navbarNotificationsDropdownSettings" data-bs-toggle="dropdown" aria-expanded="false">
+                      <i class="bi-three-dots-vertical"></i>
+                    </button>
+
+                  </div>
+                  <!-- End Unfold -->
+                </div>
+                <!-- End Header -->
+                <!-- Body -->
+                <div class="card-body-height">
+                  <!-- Tab Content -->
+                  <div class="tab-content" id="notificationTabContent">
+                    <div class="tab-pane fade show active" id="notificationNavOne" role="tabpanel" aria-labelledby="notificationNavOne-tab">
+                      <!-- List Group -->
+                      <ul class="list-group list-group-flush navbar-card-list-group">
+                        <?php
+                        foreach ($notification as $notif) :
+                        ?>
+                          <!-- Item -->
+                          <li class="list-group-item form-check-select">
+                            <div class="row">
+                              <div class="col-auto">
+                                <div class="d-flex align-items-center">
+
+                                  <div class="avatar avatar-sm avatar-circle">
+                                    <img class="avatar-img" src="../<?=show('anggota',$notif['anggota_id'])['foto']?>" alt="Image Description">
+                                  </div>
+                                </div>
+                              </div>
+                              <!-- End Col -->
+
+                              <div class="col ms-n2">
+                                <h5 class="mb-1"><?=show('anggota',$notif['anggota_id'])['nama']?></h5>
+                                <p class="text-body fs-5"><?=$notif['content']?></p>
+                              </div>
+                              <!-- End Col -->
+
+                              <small class="col-auto text-muted text-cap"><?=timeAgo($notif['time'])?></small>
+                              <!-- End Col -->
+                            </div>
+                            <!-- End Row -->
+
+                            <a class="stretched-link" href="#"></a>
+                          </li>
+
+                        <?php
+                        endforeach;
+                        ?>
+                        <!-- End Item -->
+                      </ul>
+                      <!-- End List Group -->
+                    </div>
+                  </div>
+                  <!-- End Tab Content -->
+                </div>
+                <!-- End Body -->
+
+                <!-- Card Footer -->
+                <a class="card-footer text-center" href="#">
+                  View all notifications <i class="bi-chevron-right"></i>
+                </a>
+                <!-- End Card Footer -->
+              </div>
+            </div>
+          </div>
+          <!-- End Notification -->
+        </li>
         <li class="nav-item">
           <!-- Account -->
           <div class="dropdown">
