@@ -6,9 +6,12 @@ $user = show('user', $userAuth['id']);
 $no = 1;
 ?>
 
-<div class="container" style="width: 1200px; overflow:scroll">
+<div class="container" style=" overflow:scroll">
    <h1>DATA ANGGOTA PERPUSTAKAAN</h1>
-   <a href="tambah.php" class="btn btn-primary my-4">Tambah Anggota</a>
+   <div class="d-flex gap-2">
+      <a href="alumni.php" class="btn btn-secondary my-4">Data Alumni</a>
+      <a href="tambah.php" class="btn btn-primary my-4">Tambah Anggota</a>
+   </div>
    <table class="table" id="table">
       <thead class="mt-3">
          <tr>
@@ -22,7 +25,7 @@ $no = 1;
             <th>EMAIL</th>
             <th>KELAMINT</th>
             <th>TA</th>
-            <th>ALAMAT</th>
+            <th >ALAMAT</th>
             <th>FOTO</th>
             <th>ACTION</th>
 
@@ -46,7 +49,7 @@ $no = 1;
                <td><?= $value['email']; ?></td>
                <td><?= $value['kelamin']; ?></td>
                <td><?= $value['TA']; ?></td>
-               <td><?= $value['alamat']; ?></td>
+               <td style="min-width:200px"><?= $value['alamat']; ?></td>
                <td> <img src="../<?= $value['foto']; ?>" class="img-thumbnail" alt="..." width=400></td>
                <td>
                   <div class="d-flex gap-3">
