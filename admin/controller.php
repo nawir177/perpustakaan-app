@@ -3,35 +3,50 @@ $conn = mysqli_connect('localhost', 'root', '', 'perpustakaan');
 
 function getFilter($table)
 {
-   global $conn;
-   $query = "SELECT * FROM $table";
-   if (isset($_GET['bulan']) && $_GET['bulan'] != "") {
-      $bulan = mysqli_real_escape_string($conn, $_GET['bulan']);
-      $query .= " WHERE DATE_FORMAT(STR_TO_DATE(tanggal, '%d/%m/%Y'), '%m') = '$bulan'";
-   }
+    global $conn;
+    $query = "SELECT * FROM $table";
+    $conditions = [];
 
-   if (isset($_GET['tahun']) && $_GET['tahun'] != "") {
-      $tahun = mysqli_real_escape_string($conn, $_GET['tahun']);
-      // Jika sudah ada klausa WHERE sebelumnya, gunakan AND, jika tidak, gunakan WHERE
-      $query .= (isset($_GET['bulan']) && $_GET['bulan'] != "") ? " AND DATE_FORMAT(STR_TO_DATE(tanggal, '%d/%m/%Y'), '%Y') = '$tahun'" : " WHERE DATE_FORMAT(STR_TO_DATE(tanggal, '%d/%m/%Y'), '%Y') = '$tahun'";
-   }
+    // Filter by month
+    if (isset($_GET['bulan']) && $_GET['bulan'] != "") {
+        $bulan = mysqli_real_escape_string($conn, $_GET['bulan']);
+        $conditions[] = "DATE_FORMAT(STR_TO_DATE(tanggal, '%d/%m/%Y'), '%m') = '$bulan'";
+    }
 
-   $bulan = isset($_GET['bulan']) ? $_GET['bulan'] : '';
-   $tahun = isset($_GET['tahun']) ? $_GET['tahun'] : '';
-   $rows = [];
-   $result = mysqli_query($conn, $query);
+    // Filter by year
+    if (isset($_GET['tahun']) && $_GET['tahun'] != "") {
+        $tahun = mysqli_real_escape_string($conn, $_GET['tahun']);
+        $conditions[] = "DATE_FORMAT(STR_TO_DATE(tanggal, '%d/%m/%Y'), '%Y') = '$tahun'";
+    }
 
-   if ($result) {
-      while ($row = mysqli_fetch_assoc($result)) {
-         $rows[] = $row;
-      }
-      mysqli_free_result($result);
-   } else {
-      echo "Error: " . mysqli_error($conn);
-   }
-   mysqli_close($conn);
-   return $rows;
+    // Filter by status
+    if (isset($_GET['status']) && $_GET['status'] != "") {
+        $status = mysqli_real_escape_string($conn, $_GET['status']);
+        $conditions[] = "status = '$status'";
+    }
+
+    // Combine conditions with AND
+    if (!empty($conditions)) {
+        $query .= " WHERE " . implode(" AND ", $conditions);
+    }
+
+    $rows = [];
+    $result = mysqli_query($conn, $query);
+
+    if ($result) {
+        while ($row = mysqli_fetch_assoc($result)) {
+            $rows[] = $row;
+        }
+        mysqli_free_result($result);
+    } else {
+        echo "Error: " . mysqli_error($conn);
+    }
+
+    return $rows;
 }
+
+
+
 
 function all($table)
 {

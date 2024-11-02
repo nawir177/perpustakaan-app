@@ -28,9 +28,7 @@ $no = 1;
             <th >ALAMAT</th>
             <th>FOTO</th>
             <th>ACTION</th>
-
          </tr>
-
       </thead>
       <tbody>
     <?php foreach ($anggota as $value) : ?>
