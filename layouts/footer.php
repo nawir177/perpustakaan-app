@@ -4,11 +4,22 @@
     <div>
       <h1 class="text-2xl font-bold">Perpustakaan Aplikasi</h1>
     </div>
-    
+
   </div>
 </footer>
 <!-- flobiite js -->
 <script src="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.js"></script>
+
+<!-- garvik js -->
+<script>
+  (function() {
+    // INITIALIZATION OF CHARTJS
+    // =======================================================
+    document.querySelectorAll('.js-chart').forEach(item => {
+      HSCore.components.HSChartJS.init(item)
+    })
+  });
+</script>
 
 </body>
 

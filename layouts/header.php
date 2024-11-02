@@ -11,6 +11,7 @@ session_start();
   <script src="https://cdn.tailwindcss.com"></script>
   <link href="../src/output.css" rel="stylesheet">
   <link href="https://cdn.jsdelivr.net/npm/flowbite@2.4.1/dist/flowbite.min.css" rel="stylesheet" />
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     tailwind.config = {
       theme: {

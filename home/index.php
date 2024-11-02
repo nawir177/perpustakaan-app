@@ -2,6 +2,9 @@
 $nawBook = newData('e_book', 8);
 $kategori = all('kategori');
 $rekomendasi = all('rekomendasi_ebook');
+
+$buku = grafik();
+$bukuJson = json_encode($buku);
 ?>
 
 <section class="mb-10">
@@ -28,7 +31,7 @@ $rekomendasi = all('rekomendasi_ebook');
     </section>
     <!-- category -->
     <section class="mb-10">
-        
+
         <div class="flex gap-4 items-center flex-wrap">
             <div class="col">
                 <a href="../home/" class="w-56 h-20 bg-white shadow rounded-xl flex gap-4 justify-center items-center my-auto ">
@@ -66,9 +69,16 @@ $rekomendasi = all('rekomendasi_ebook');
             <?php endforeach  ?>
         </div>
     </section>
+
+    <section class="mb-8 w-full">
+        <!-- Chart Container -->
+        <div class="chart-container w-full">
+            <canvas id="bookPopularityChart"></canvas>
+        </div>
+    </section>
     <!-- new book list -->
     <section class="mb-8">
-    <h1 class="text-3xl font-bold italict my-6">Berikut kumpulan E-BOOk yang tersedia</h1>
+        <h1 class="text-3xl font-bold italict my-6">Berikut kumpulan E-BOOk yang tersedia</h1>
         <div class="bg-cover w-80 h-14 flex items-center p-2" style="background-image: url('../image/menu.png');">
             <h2 class="text-gray-100 text-3xl font-thin">New Book</h2>
         </div>
@@ -101,7 +111,7 @@ $rekomendasi = all('rekomendasi_ebook');
         <div class="flex max-w-6xl w-full gap-4 rounded-xl flex-wrap my-6">
             <?php foreach (filterBook(1) as $val) :  ?>
                 <a href="../detail-book/index.php?id=<?= $val['id'] ?>">
-                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image']?>');"></div>
+                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image'] ?>');"></div>
                 </a>
             <?php endforeach  ?>
         </div>
@@ -114,7 +124,7 @@ $rekomendasi = all('rekomendasi_ebook');
         <div class="flex max-w-6xl w-full gap-4 rounded-xl flex-wrap my-6">
             <?php foreach (filterBook(2) as $val) :  ?>
                 <a href="../detail-book/index.php?id=<?= $val['id'] ?>">
-                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image']?>');"></div>
+                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image'] ?>');"></div>
                 </a>
             <?php endforeach  ?>
         </div>
@@ -127,13 +137,80 @@ $rekomendasi = all('rekomendasi_ebook');
         <div class="flex max-w-6xl w-full gap-4 rounded-xl flex-wrap my-6">
             <?php foreach (filterBook(3) as $val) :  ?>
                 <a href="../detail-book/index.php?id=<?= $val['id'] ?>">
-                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image']?>');"></div>
+                    <div class="hover:scale-105 transition-all duration-300 h-64 w-52 bg-gray-500 bg-cover shadow border" style="background-image: url('../admin/e-book/image/<?= $val['image'] ?>');"></div>
                 </a>
             <?php endforeach  ?>
         </div>
     </section>
 
 </div>
+
+
+<script>
+      // Mengambil data dari PHP yang telah di-encode menjadi JSON
+      const bukuData = <?php echo $bukuJson; ?>;
+
+      // Menyusun labels dan data berdasarkan $bukuData
+      const labels = Object.keys(bukuData);
+      const data = Object.values(bukuData);
+
+      // Data untuk bar chart buku populer
+      const bookPopularityData = {
+            labels: labels, // Label akan diisi dengan nama kategori dari PHP
+            datasets: [{
+                  label: 'Jumlah Salinan Dipinjam',
+                  data: data, // Data diisi dengan jumlah berdasarkan kategori dari PHP
+                  backgroundColor: '#FFB508',
+                  borderColor: '#FFB508',
+                  borderWidth: 1,
+                  withDirectives: 3,
+                  borderRadius: 10,
+            }]
+      };
+
+      // Konfigurasi chart
+      const config = {
+            type: 'bar',
+            data: bookPopularityData,
+            options: {
+                  responsive: true,
+                  plugins: {
+                        legend: {
+                              position: 'top',
+                        },
+                        tooltip: {
+                              callbacks: {
+                                    label: function(tooltipItem) {
+                                          return tooltipItem.label + ': ' + tooltipItem.raw;
+                                    }
+                              }
+                        }
+                  },
+                  scales: {
+                        x: {
+                              beginAtZero: true,
+                              title: {
+                                    display: true,
+                                    text: 'Judul Buku'
+                              }
+                        },
+                        y: {
+                              beginAtZero: true,
+                              title: {
+                                    display: true,
+                                    text: 'Jumlah Salinan Dipinjam'
+                              }
+                        }
+                  }
+            }
+      };
+
+      // Inisialisasi chart
+      window.onload = function() {
+            const ctx = document.getElementById('bookPopularityChart').getContext('2d');
+            new Chart(ctx, config);
+      };
+</script>
 
 
 <?php include '../layouts/footer.php' ?>
