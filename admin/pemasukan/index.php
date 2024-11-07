@@ -38,7 +38,7 @@ $no = 1;
             <?= $no++; ?>
           </td>
           <td><?= show('peminjaman', $value['id_peminjaman'])['tanggal']; ?></td>
-          <td>Denda peminjaman</td>
+          <td><?=$value['sumber']?></td>
           <td><?= show('anggota', show('peminjaman', $value['id_peminjaman'])['id_anggota'])['nama']; ?></td>
           <td><?= show('buku', $value['id_buku'])['judul']  ?></td>
           <td>Rp. <?= number_format($value['jumlah_denda'], 0, 00) ?></td>

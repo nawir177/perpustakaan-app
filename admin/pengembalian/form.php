@@ -28,6 +28,10 @@ $val = show("peminjaman", $id_peminjam);
                <label class="form-label" for="tanggalkembali">Tanggal Kembali</label>
                <input type="date" class="form-control" name="tanggal_kembali" id="tanggalkembali">
             </div>
+            <div class="mb-3">
+               <label class="form-label" for="judul">Denda Rusak (Opsional)</label>
+               <input type="number" class="form-control" name="denda_rusak" id="denda" >
+            </div>
             <input type="hidden" name="id_peminjaman" value="<?= $val['id']?>" >
             <input type="hidden" name="tanggal_target_kembali" value="<?=$val['tanggal_kembali']?>" >
             <button class="btn btn-info" type="submit" name="tambah">Tambah Pengembalian</button>

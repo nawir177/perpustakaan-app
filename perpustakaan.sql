@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.0
+-- version 5.2.1
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 22, 2024 at 04:01 PM
--- Server version: 10.4.27-MariaDB
--- PHP Version: 8.0.25
+-- Waktu pembuatan: 07 Nov 2024 pada 01.51
+-- Versi server: 10.4.32-MariaDB
+-- Versi PHP: 8.0.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `absensi`
+-- Struktur dari tabel `absensi`
 --
 
 CREATE TABLE `absensi` (
@@ -37,7 +37,7 @@ CREATE TABLE `absensi` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `absensi`
+-- Dumping data untuk tabel `absensi`
 --
 
 INSERT INTO `absensi` (`id`, `user_id`, `username`, `tanggal`, `waktu`, `tujuan`) VALUES
@@ -51,7 +51,7 @@ INSERT INTO `absensi` (`id`, `user_id`, `username`, `tanggal`, `waktu`, `tujuan`
 -- --------------------------------------------------------
 
 --
--- Table structure for table `absensi_tamu`
+-- Struktur dari tabel `absensi_tamu`
 --
 
 CREATE TABLE `absensi_tamu` (
@@ -64,7 +64,7 @@ CREATE TABLE `absensi_tamu` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `absensi_tamu`
+-- Dumping data untuk tabel `absensi_tamu`
 --
 
 INSERT INTO `absensi_tamu` (`id`, `nama`, `instansi`, `tujuan`, `tanggal`, `waktu`) VALUES
@@ -75,7 +75,7 @@ INSERT INTO `absensi_tamu` (`id`, `nama`, `instansi`, `tujuan`, `tanggal`, `wakt
 -- --------------------------------------------------------
 
 --
--- Table structure for table `anggota`
+-- Struktur dari tabel `anggota`
 --
 
 CREATE TABLE `anggota` (
@@ -95,13 +95,13 @@ CREATE TABLE `anggota` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `anggota`
+-- Dumping data untuk tabel `anggota`
 --
 
 INSERT INTO `anggota` (`id`, `user_id`, `nis`, `nama`, `email`, `telpon`, `tempat_lahir`, `tanggal_lahir`, `kelamin`, `TA`, `alamat`, `foto`, `verifikasi`) VALUES
-(18, 9, '123', 'amelia', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2012-10-19', 'perempuan', '2024', '1111', '../admin/anggota/image/kemenag.png', 1),
-(19, 10, '123', 'nadiatul', 'ibrahimmuhammad0314@gmail.com', '082255445566', 'banjarmasin', '2010-03-04', 'perempuan', '2024', 'jl. vetran', '../admin/anggota/image/Foto baity.JPG', 1),
-(20, 11, '1234', 'ramlah', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2010-08-19', 'perempuan', '2024', 'jl. pemurus', '../admin/anggota/image/Foto baity.JPG', 1),
+(18, 9, '123', 'amelia', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2012-10-19', 'perempuan', '2020', '1111', '../admin/anggota/image/kemenag.png', 1),
+(19, 10, '123', 'nadiatul', 'ibrahimmuhammad0314@gmail.com', '082255445566', 'banjarmasin', '2010-03-04', 'perempuan', '2021', 'jl. vetran', '../admin/anggota/image/Foto baity.JPG', 1),
+(20, 11, '1234', 'ramlah', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2010-08-19', 'perempuan', '2020', 'jl. pemurus', '../admin/anggota/image/Foto baity.JPG', 1),
 (21, 12, '12345', 'ahmad salaby', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2009-08-07', 'perempuan', '2024', 'jl. sungai andai', '../admin/anggota/image/Foto baity.JPG', 1),
 (22, 13, '123456', 'Nur Baity', 'ibrahimmuhammad0314@gmail.com', '082255445566', 'banjarmasin', '2006-08-12', 'perempuan', '2024', 'jl, sungai andai', '../admin/anggota/image/Foto baity.JPG', 1),
 (23, 14, '1234567', 'agustina', 'Nurbaity4894@gmail.com', '082255445566', 'banjarmasin', '2009-08-19', 'perempuan', '2024', 'jl. sungai andai', '../admin/anggota/image/Foto baity.JPG', 1),
@@ -111,7 +111,7 @@ INSERT INTO `anggota` (`id`, `user_id`, `nis`, `nama`, `email`, `telpon`, `tempa
 -- --------------------------------------------------------
 
 --
--- Table structure for table `buku`
+-- Struktur dari tabel `buku`
 --
 
 CREATE TABLE `buku` (
@@ -130,21 +130,21 @@ CREATE TABLE `buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `buku`
+-- Dumping data untuk tabel `buku`
 --
 
 INSERT INTO `buku` (`id`, `id_kategori`, `tanggal`, `judul`, `pengarang`, `penerbit`, `tahun_terbit`, `isbn`, `jumlah`, `lokasi`, `deskripsi`, `image`) VALUES
-(12, 1, '11/02/2024', 'matematika', 'Abdur Rahman As’ari, Mohammad Tohir, Erik Valentino, Zainul Imron, dan Ibnu Taufiq', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-984-3', 22, 'rak 1', 'Buku Matematika Kelas VII', '66c3d52ce6f12.jpeg'),
-(13, 1, '20/02/2024', 'Bahasa Indonesia ', 'Titik Harsiati, Agus Trianto, dan E. Kosasih', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-968-3', 16, 'rak 2', 'Buku Bahasa Indonesia Kelas VII', '66c3d5857353d.jpg'),
+(12, 1, '11/02/2024', 'matematika', 'Abdur Rahman As’ari, Mohammad Tohir, Erik Valentino, Zainul Imron, dan Ibnu Taufiq', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-984-3', 25, 'rak 1', 'Buku Matematika Kelas VII', '66c3d52ce6f12.jpeg'),
+(13, 1, '20/02/2024', 'Bahasa Indonesia ', 'Titik Harsiati, Agus Trianto, dan E. Kosasih', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-968-3', 18, 'rak 2', 'Buku Bahasa Indonesia Kelas VII', '66c3d5857353d.jpg'),
 (14, 1, '20/02/2024', 'Bahasa Inggris ', 'Ika Lestari Damayanti, Yusnita Febrianti, Pipit Prihartanti Suharto, Iyen Nurlaelawati, Aji Jehan Fe', 'Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi ', '2022', '978-602-244-884-6', 18, 'rak 1', 'Buku Bahasa Inggris Kelas 9', '66c3d5fb6d881.jpeg'),
 (18, 1, '23/07/2024', 'Ilmu Pengetahuan Alam', 'Cece Sutia, Victoriani Inabuy, Okky Fajar Tri Maryana,Budiyanti Dwi Hardanie, Sri Handayani Lestari', 'Pusat Perbukuan Badan Standar, Kurikulum, dan Asesmen Pendidikan  Kementerian Pendidikan, Kebudayaan', '2022', '978-602-244-383-4', 32, 'rak71', 'Buku Ilmu Pengetahuan Alam Kelas 9', '66c3d696564c1.jpeg'),
 (19, 1, '04/08/2024', 'Ilmu Pengetahuan Sosial', 'Mohammad Rizky Satria, Sari Oktafiana, M. Nursa’ban, Supardi', 'Pusat Perbukuan Badan Standar, Kurikulum, dan Asesmen Pendidikan  Kementerian Pendidikan, Kebudayaan', '2022', ' 978-602-244-306-3', 2, 'rak1', 'Buku Ilmu Pengetahuan Sosial Kelas 9', '66c3d6e63247d.jpeg'),
-(22, 3, '25/08/2024', 'Bung Hatta dan Pendidikan Karakter', 'Dr.Silfa Hanani, M.Si', 'AR-RUZZ Media', '2018', '978-602-313-266-9', 10, 'rak1', '', '66ca98690aa1b.jpg');
+(22, 3, '25/08/2024', 'Bung Hatta dan Pendidikan Karakter', 'Dr.Silfa Hanani, M.Si', 'AR-RUZZ Media', '2018', '978-602-313-266-9', 11, 'rak1', '', '66ca98690aa1b.jpg');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `e_book`
+-- Struktur dari tabel `e_book`
 --
 
 CREATE TABLE `e_book` (
@@ -161,7 +161,7 @@ CREATE TABLE `e_book` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `e_book`
+-- Dumping data untuk tabel `e_book`
 --
 
 INSERT INTO `e_book` (`id`, `tanggal`, `id_kategori`, `judul`, `pengarang`, `penerbit`, `tahun_terbit`, `deskripsi`, `image`, `file`) VALUES
@@ -176,7 +176,7 @@ INSERT INTO `e_book` (`id`, `tanggal`, `id_kategori`, `judul`, `pengarang`, `pen
 -- --------------------------------------------------------
 
 --
--- Table structure for table `katalog`
+-- Struktur dari tabel `katalog`
 --
 
 CREATE TABLE `katalog` (
@@ -187,7 +187,7 @@ CREATE TABLE `katalog` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `katalog`
+-- Dumping data untuk tabel `katalog`
 --
 
 INSERT INTO `katalog` (`id`, `judul`, `pengarang`, `id_kategori`) VALUES
@@ -196,7 +196,7 @@ INSERT INTO `katalog` (`id`, `judul`, `pengarang`, `id_kategori`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kategori`
+-- Struktur dari tabel `kategori`
 --
 
 CREATE TABLE `kategori` (
@@ -205,7 +205,7 @@ CREATE TABLE `kategori` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kategori`
+-- Dumping data untuk tabel `kategori`
 --
 
 INSERT INTO `kategori` (`id`, `nama`) VALUES
@@ -216,7 +216,7 @@ INSERT INTO `kategori` (`id`, `nama`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `kondisi_buku`
+-- Struktur dari tabel `kondisi_buku`
 --
 
 CREATE TABLE `kondisi_buku` (
@@ -229,7 +229,7 @@ CREATE TABLE `kondisi_buku` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `kondisi_buku`
+-- Dumping data untuk tabel `kondisi_buku`
 --
 
 INSERT INTO `kondisi_buku` (`id`, `id_buku`, `tanggal`, `kondisi`, `keterangan`, `jumlah`) VALUES
@@ -245,38 +245,72 @@ INSERT INTO `kondisi_buku` (`id`, `id_buku`, `tanggal`, `kondisi`, `keterangan`,
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pemasukan`
+-- Struktur dari tabel `notifikasi`
+--
+
+CREATE TABLE `notifikasi` (
+  `id` int(11) NOT NULL,
+  `anggota_id` int(100) NOT NULL,
+  `content` text NOT NULL,
+  `time` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data untuk tabel `notifikasi`
+--
+
+INSERT INTO `notifikasi` (`id`, `anggota_id`, `content`, `time`) VALUES
+(1, 19, 'meminjam buku', '2024-10-31 07:35:39'),
+(2, 25, 'mengembalikan buku', '2024-10-31 07:35:39'),
+(4, 22, 'Buku dengan judul Bung Hatta dan Pendidikan Karakter telah dikembalikan', '2024-10-31 07:58:47'),
+(5, 25, 'Buku dengan judul matematika telah dikembalikan', '2024-10-31 07:59:24'),
+(7, 22, 'Melakukan pengajuan peminjaman dengan judul buku Bahasa Indonesia ', '2024-10-31 08:10:50'),
+(8, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 00:03:42'),
+(9, 22, 'Buku dengan judul Bahasa Indonesia  telah dikembalikan', '2024-11-07 00:05:01'),
+(10, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 00:06:05');
+
+-- --------------------------------------------------------
+
+--
+-- Struktur dari tabel `pemasukan`
 --
 
 CREATE TABLE `pemasukan` (
   `id` int(100) NOT NULL,
   `id_peminjaman` int(100) NOT NULL,
   `id_buku` int(100) NOT NULL,
+  `sumber` varchar(100) NOT NULL DEFAULT 'denda peminjaman',
   `jumlah_denda` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pemasukan`
+-- Dumping data untuk tabel `pemasukan`
 --
 
-INSERT INTO `pemasukan` (`id`, `id_peminjaman`, `id_buku`, `jumlah_denda`) VALUES
-(10, 35, 13, 4000),
-(11, 36, 19, 3000),
-(12, 37, 18, 1000),
-(13, 38, 14, 3000),
-(14, 38, 14, 5000),
-(16, 37, 18, 5000),
-(17, 36, 19, 4000),
-(18, 47, 19, 4000),
-(19, 35, 13, 8000),
-(20, 36, 19, 9000),
-(21, 52, 14, 1000),
-(22, 52, 14, 4000);
+INSERT INTO `pemasukan` (`id`, `id_peminjaman`, `id_buku`, `sumber`, `jumlah_denda`) VALUES
+(10, 35, 13, 'denda peminjaman', 4000),
+(11, 36, 19, 'denda peminjaman', 3000),
+(12, 37, 18, 'denda peminjaman', 1000),
+(13, 38, 14, 'denda peminjaman', 3000),
+(14, 38, 14, 'denda peminjaman', 5000),
+(16, 37, 18, 'denda peminjaman', 5000),
+(17, 36, 19, 'denda peminjaman', 4000),
+(18, 47, 19, 'denda peminjaman', 4000),
+(19, 35, 13, 'denda peminjaman', 8000),
+(20, 36, 19, 'denda peminjaman', 9000),
+(21, 52, 14, 'denda peminjaman', 1000),
+(22, 52, 14, 'denda peminjaman', 4000),
+(23, 46, 13, 'denda peminjaman', 70000),
+(24, 48, 22, 'denda peminjaman', 60000),
+(25, 56, 12, 'denda peminjaman', 57000),
+(26, 35, 13, 'denda peminjaman', 6000),
+(27, 35, 13, 'denda peminjaman', 53000),
+(28, 51, 12, 'Denda Rusak', 20000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `peminjaman`
+-- Struktur dari tabel `peminjaman`
 --
 
 CREATE TABLE `peminjaman` (
@@ -289,7 +323,7 @@ CREATE TABLE `peminjaman` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `peminjaman`
+-- Dumping data untuk tabel `peminjaman`
 --
 
 INSERT INTO `peminjaman` (`id`, `id_anggota`, `id_buku`, `tanggal`, `tanggal_kembali`, `status`) VALUES
@@ -297,22 +331,22 @@ INSERT INTO `peminjaman` (`id`, `id_anggota`, `id_buku`, `tanggal`, `tanggal_kem
 (36, 22, 19, '20/08/2024', '2024-08-23', 'dikembalikan'),
 (37, 24, 18, '20/08/2024', '2024-08-19', 'dikembalikan'),
 (38, 24, 14, '20/08/2024', '2024-08-19', 'dikembalikan'),
-(46, 24, 13, '20/08/2024', '2024-08-19', 'dipinjam'),
+(46, 24, 13, '20/08/2024', '2024-08-19', 'dikembalikan'),
 (47, 22, 19, '20/08/2024', '2024-08-23', 'dikembalikan'),
-(48, 22, 22, '26/08/2024', '2024-08-30', 'dipinjam'),
-(49, 22, 12, '28/08/2024', '2024-08-31', 'dipinjam'),
-(50, 22, 13, '28/08/2024', '2024-08-31', 'dipinjam'),
-(51, 22, 12, '28/08/2024', '2024-08-31', 'dipinjam'),
+(48, 22, 22, '26/08/2024', '2024-08-30', 'dikembalikan'),
+(49, 22, 12, '28/08/2024', '2024-08-31', 'dikembalikan'),
+(50, 22, 13, '28/08/2024', '2024-08-31', 'dikembalikan'),
+(51, 22, 12, '28/08/2024', '2024-08-31', 'dikembalikan'),
 (52, 22, 14, '28/08/2024', '2024-08-31', 'dikembalikan'),
 (53, 24, 12, '28/08/2024', '2024-08-31', 'dipinjam'),
 (54, 22, 13, '28/08/2024', '2024-08-31', 'dipinjam'),
 (55, 22, 12, '29/08/2024', '2024-09-01', 'dipinjam'),
-(56, 25, 12, '29/08/2024', '2024-09-01', 'dipinjam');
+(56, 25, 12, '29/08/2024', '2024-09-01', 'dikembalikan');
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengajuan`
+-- Struktur dari tabel `pengajuan`
 --
 
 CREATE TABLE `pengajuan` (
@@ -323,19 +357,22 @@ CREATE TABLE `pengajuan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengajuan`
+-- Dumping data untuk tabel `pengajuan`
 --
 
 INSERT INTO `pengajuan` (`id`, `tanggal`, `id_user`, `id_buku`) VALUES
 (48, '20/08/2024', 9, 12),
 (49, '20/08/2024', 9, 13),
 (53, '20/08/2024', 13, 18),
-(54, '29/08/2024', 13, 22);
+(54, '29/08/2024', 13, 22),
+(55, '31/10/2024', 13, 22),
+(56, '31/10/2024', 13, 22),
+(57, '31/10/2024', 13, 13);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengeluaran`
+-- Struktur dari tabel `pengeluaran`
 --
 
 CREATE TABLE `pengeluaran` (
@@ -348,7 +385,7 @@ CREATE TABLE `pengeluaran` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengeluaran`
+-- Dumping data untuk tabel `pengeluaran`
 --
 
 INSERT INTO `pengeluaran` (`id`, `tanggal`, `nama`, `harga`, `jumlah`, `total`) VALUES
@@ -361,7 +398,7 @@ INSERT INTO `pengeluaran` (`id`, `tanggal`, `nama`, `harga`, `jumlah`, `total`) 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `pengembalian`
+-- Struktur dari tabel `pengembalian`
 --
 
 CREATE TABLE `pengembalian` (
@@ -373,21 +410,27 @@ CREATE TABLE `pengembalian` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `pengembalian`
+-- Dumping data untuk tabel `pengembalian`
 --
 
 INSERT INTO `pengembalian` (`id`, `id_peminjaman`, `tanggal`, `status`, `denda`) VALUES
-(22, 35, '03/09/2024', 'Terlambat', 8000),
+(22, 35, '21/08/2024', 'Ontime', 0),
 (23, 36, '04/09/2024', 'Terlambat', 9000),
 (24, 37, '31/08/2024', 'Terlambat', 5000),
 (25, 38, '31/08/2024', 'Terlambat', 5000),
 (26, 47, '30/08/2024', 'Terlambat', 4000),
-(27, 52, '07/09/2024', 'Terlambat', 4000);
+(27, 52, '07/09/2024', 'Terlambat', 4000),
+(28, 46, '31/10/2024', 'Terlambat', 70000),
+(29, 48, '01/11/2024', 'Terlambat', 60000),
+(30, 56, '31/10/2024', 'Terlambat', 57000),
+(31, 49, '16/11/2024', 'Terlambat', 74000),
+(32, 50, '16/11/2024', 'Terlambat', 74000),
+(33, 51, '15/11/2024', 'Terlambat', 73000);
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `rekomendasi_ebook`
+-- Struktur dari tabel `rekomendasi_ebook`
 --
 
 CREATE TABLE `rekomendasi_ebook` (
@@ -396,7 +439,7 @@ CREATE TABLE `rekomendasi_ebook` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `rekomendasi_ebook`
+-- Dumping data untuk tabel `rekomendasi_ebook`
 --
 
 INSERT INTO `rekomendasi_ebook` (`id`, `id_ebook`) VALUES
@@ -409,7 +452,7 @@ INSERT INTO `rekomendasi_ebook` (`id`, `id_ebook`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `user`
+-- Struktur dari tabel `user`
 --
 
 CREATE TABLE `user` (
@@ -424,7 +467,7 @@ CREATE TABLE `user` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Dumping data for table `user`
+-- Dumping data untuk tabel `user`
 --
 
 INSERT INTO `user` (`id`, `nama`, `kelamin`, `telpon`, `email`, `username`, `password`, `is_admin`) VALUES
@@ -433,7 +476,7 @@ INSERT INTO `user` (`id`, `nama`, `kelamin`, `telpon`, `email`, `username`, `pas
 (10, 'nadiatul', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'nadia', '$2y$10$aCnHdMKiq5HlXdfBxQGEx.JIuXqJDb3yz8s2G5D7ouRo5xf8ixwLa', 0),
 (11, 'ramlah', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'ramlah', '$2y$10$AJRBfBLW0hKvcEMf7TKrhe22G1HOmyI.it5oEsyeC/RF.WqYqd/T2', 0),
 (12, 'ahmad salaby', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'salaby', '$2y$10$9oRbMuxndH.nDcdWIc5JH.2DZHhHLpgOCEWYC7/2f3J4kTtF7DFnS', 0),
-(13, 'Nur Baity', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'baity', '$2y$10$1JmoS6hpdgxE2kG9ug8qvec2wWmdSa6JdQdfUxck3vM6BMZlunLxO', 0),
+(13, 'Nur Baity', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'baity', '$2y$10$p0KO3rtPBX7EPd.cfw0FVOamOSDTacawDvX1hTv0rtCyt8IgE1oge', 0),
 (14, 'agustina', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'agustina', '$2y$10$lMubaLigrfTUxMDh.V4rLufMhpqFjEXuEvUNn33VvfpdepcCdfZm2', 0),
 (15, 'ana', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'ana', '$2y$10$/qrA/QkJrkFo7r2Bsec2/Ob6gDqCMwnGT1GmcPIfLL1etLwVV696K', 0),
 (16, 'ajeng', 'Perempuan', '08215555555', 'Nurbaity4894@gmail.com', 'ajeng', '$2y$10$HuCVZVhs3fagOiQWVmkQWOODujFeYGkZcpsbMWqKCHrEKxncjLp4.', 0);
@@ -443,59 +486,66 @@ INSERT INTO `user` (`id`, `nama`, `kelamin`, `telpon`, `email`, `username`, `pas
 --
 
 --
--- Indexes for table `absensi`
+-- Indeks untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `absensi_tamu`
+-- Indeks untuk tabel `absensi_tamu`
 --
 ALTER TABLE `absensi_tamu`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `anggota`
+-- Indeks untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `buku`
+-- Indeks untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
--- Indexes for table `e_book`
+-- Indeks untuk tabel `e_book`
 --
 ALTER TABLE `e_book`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
--- Indexes for table `katalog`
+-- Indeks untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_kategori` (`id_kategori`);
 
 --
--- Indexes for table `kategori`
+-- Indeks untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `kondisi_buku`
+-- Indeks untuk tabel `kondisi_buku`
 --
 ALTER TABLE `kondisi_buku`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_buku` (`id_buku`);
 
 --
--- Indexes for table `pemasukan`
+-- Indeks untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `anggota_id` (`anggota_id`);
+
+--
+-- Indeks untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD PRIMARY KEY (`id`),
@@ -503,7 +553,7 @@ ALTER TABLE `pemasukan`
   ADD KEY `pemasukan_ibfk_2` (`id_peminjaman`);
 
 --
--- Indexes for table `peminjaman`
+-- Indeks untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD PRIMARY KEY (`id`),
@@ -511,181 +561,193 @@ ALTER TABLE `peminjaman`
   ADD KEY `id_buku` (`id_buku`);
 
 --
--- Indexes for table `pengajuan`
+-- Indeks untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengeluaran`
+-- Indeks untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indexes for table `pengembalian`
+-- Indeks untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_peminjaman` (`id_peminjaman`);
 
 --
--- Indexes for table `rekomendasi_ebook`
+-- Indeks untuk tabel `rekomendasi_ebook`
 --
 ALTER TABLE `rekomendasi_ebook`
   ADD PRIMARY KEY (`id`),
   ADD KEY `id_ebook` (`id_ebook`);
 
 --
--- Indexes for table `user`
+-- Indeks untuk tabel `user`
 --
 ALTER TABLE `user`
   ADD PRIMARY KEY (`id`);
 
 --
--- AUTO_INCREMENT for dumped tables
+-- AUTO_INCREMENT untuk tabel yang dibuang
 --
 
 --
--- AUTO_INCREMENT for table `absensi`
+-- AUTO_INCREMENT untuk tabel `absensi`
 --
 ALTER TABLE `absensi`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
--- AUTO_INCREMENT for table `absensi_tamu`
+-- AUTO_INCREMENT untuk tabel `absensi_tamu`
 --
 ALTER TABLE `absensi_tamu`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `anggota`
+-- AUTO_INCREMENT untuk tabel `anggota`
 --
 ALTER TABLE `anggota`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=26;
 
 --
--- AUTO_INCREMENT for table `buku`
+-- AUTO_INCREMENT untuk tabel `buku`
 --
 ALTER TABLE `buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
--- AUTO_INCREMENT for table `e_book`
+-- AUTO_INCREMENT untuk tabel `e_book`
 --
 ALTER TABLE `e_book`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
--- AUTO_INCREMENT for table `katalog`
+-- AUTO_INCREMENT untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT for table `kategori`
+-- AUTO_INCREMENT untuk tabel `kategori`
 --
 ALTER TABLE `kategori`
   MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- AUTO_INCREMENT for table `kondisi_buku`
+-- AUTO_INCREMENT untuk tabel `kondisi_buku`
 --
 ALTER TABLE `kondisi_buku`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT for table `pemasukan`
+-- AUTO_INCREMENT untuk tabel `notifikasi`
 --
-ALTER TABLE `pemasukan`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
+ALTER TABLE `notifikasi`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
--- AUTO_INCREMENT for table `peminjaman`
+-- AUTO_INCREMENT untuk tabel `pemasukan`
+--
+ALTER TABLE `pemasukan`
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+
+--
+-- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
 
 --
--- AUTO_INCREMENT for table `pengajuan`
+-- AUTO_INCREMENT untuk tabel `pengajuan`
 --
 ALTER TABLE `pengajuan`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=55;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
 
 --
--- AUTO_INCREMENT for table `pengeluaran`
+-- AUTO_INCREMENT untuk tabel `pengeluaran`
 --
 ALTER TABLE `pengeluaran`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
--- AUTO_INCREMENT for table `pengembalian`
+-- AUTO_INCREMENT untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=28;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
 
 --
--- AUTO_INCREMENT for table `rekomendasi_ebook`
+-- AUTO_INCREMENT untuk tabel `rekomendasi_ebook`
 --
 ALTER TABLE `rekomendasi_ebook`
   MODIFY `id` int(15) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
--- AUTO_INCREMENT for table `user`
+-- AUTO_INCREMENT untuk tabel `user`
 --
 ALTER TABLE `user`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
--- Constraints for dumped tables
+-- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
 --
 
 --
--- Constraints for table `buku`
+-- Ketidakleluasaan untuk tabel `buku`
 --
 ALTER TABLE `buku`
   ADD CONSTRAINT `buku_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `e_book`
+-- Ketidakleluasaan untuk tabel `e_book`
 --
 ALTER TABLE `e_book`
   ADD CONSTRAINT `e_book_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `katalog`
+-- Ketidakleluasaan untuk tabel `katalog`
 --
 ALTER TABLE `katalog`
   ADD CONSTRAINT `katalog_ibfk_1` FOREIGN KEY (`id_kategori`) REFERENCES `kategori` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `kondisi_buku`
+-- Ketidakleluasaan untuk tabel `kondisi_buku`
 --
 ALTER TABLE `kondisi_buku`
   ADD CONSTRAINT `kondisi_buku_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id`);
 
 --
--- Constraints for table `pemasukan`
+-- Ketidakleluasaan untuk tabel `notifikasi`
+--
+ALTER TABLE `notifikasi`
+  ADD CONSTRAINT `notifikasi_ibfk_1` FOREIGN KEY (`anggota_id`) REFERENCES `anggota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
   ADD CONSTRAINT `pemasukan_ibfk_1` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `pemasukan_ibfk_2` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `peminjaman`
+-- Ketidakleluasaan untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
   ADD CONSTRAINT `peminjaman_ibfk_1` FOREIGN KEY (`id_anggota`) REFERENCES `anggota` (`id`) ON DELETE CASCADE ON UPDATE CASCADE,
   ADD CONSTRAINT `peminjaman_ibfk_2` FOREIGN KEY (`id_buku`) REFERENCES `buku` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `pengembalian`
+-- Ketidakleluasaan untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
   ADD CONSTRAINT `pengembalian_ibfk_2` FOREIGN KEY (`id_peminjaman`) REFERENCES `peminjaman` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
--- Constraints for table `rekomendasi_ebook`
+-- Ketidakleluasaan untuk tabel `rekomendasi_ebook`
 --
 ALTER TABLE `rekomendasi_ebook`
   ADD CONSTRAINT `rekomendasi_ebook_ibfk_1` FOREIGN KEY (`id_ebook`) REFERENCES `e_book` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
