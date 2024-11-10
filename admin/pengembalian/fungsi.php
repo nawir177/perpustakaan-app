@@ -56,6 +56,8 @@ function tambah($data)
    $denda = hitungDenda($tanggal_target_kembali, $tanggal_kembali, $id_peminjaman, $idBuku);
    $qTambahJumlah = "UPDATE buku SET jumlah='$plusJumlah' where id = '$idBuku'";
    $dendaRusak = $data['denda_rusak'];
+   $kondisi = $data['kondisi'];
+   $keterangan = $data['keterangan'];
 
    $tanggal_kembali = date('d/m/Y', strtotime($tanggal_kembali));
    $query = "INSERT into pengembalian VALUES('', '$id_peminjaman', '$tanggal_kembali', '$status','$denda')";
@@ -63,6 +65,11 @@ function tambah($data)
    if($dendaRusak > 0){
       $query3 = "INSERT INTO pemasukan VALUES('',$id_peminjaman, $idBuku,'Denda Rusak', $dendaRusak)";
       mysqli_query($conn, $query3);
+   }
+
+   if($kondisi){
+      $query4 = "INSERT INTO kondisi_buku VALUES('',$idBuku,'$tanggal_kembali', '$kondisi', '$keterangan', 1)";
+      mysqli_query($conn, $query4);
    }
 
    $idAnggota = show('peminjaman',$id_peminjaman)['id_anggota'];

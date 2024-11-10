@@ -3,7 +3,7 @@
 
 $totalPemasukan = 0;
 
-$pemasukan = all('pemasukan');
+$pemasukan = getFilterPemasukan();
 
 $no = 1;
 
@@ -11,12 +11,26 @@ $no = 1;
 
 <div class="container">
 
-  <h1>DATA PEMASUKAN</h1>
+  <h1 class="mb-4">DATA PEMASUKAN</h1>
 
   <div class="d-flex gap-2">
-    <a href="print.php" target="_blank">
+    <div class="col">
       <button type="button" class="btn btn-success mt-4" onclick="printData()">Cetak</button>
-    </a>
+    </div>
+    <div class="col">
+      <form action="" method="get" class="mb-3" id="filterForm">
+        <div class="row">
+          <div class="">
+              <label for="sumber" class="form-label">Sumber</label>
+              <select name="sumber" id="sumber" class="form-select" onchange="submitForm()">
+                <option value="">Pilih sumber</option>
+                <option value="denda peminjaman" <?= (isset($_GET['sumber']) && $_GET['sumber'] == 'dendam peminjaman') ? 'selected' : '' ?>>Denda Peminjmana</option>
+                <option value="denda rusak" <?= (isset($_GET['sumber']) && $_GET['sumber'] == 'denda rusak') ? 'selected' : '' ?>>Denda Rusak</option>
+              </select>
+          </div>
+        </div>
+    </form>
+    </div>
   </div>
   <table class="w-full table-bordered border-secondary mt-4" cellpadding=8 style="width: 100%;">
     <thead class="mt-3">
@@ -53,6 +67,18 @@ $no = 1;
   </table>
 
 </div>
+
+<script>
+   function submitForm() {
+      document.getElementById('filterForm').submit();
+   }
+
+   function printData() {
+    var sumber = document.getElementById('sumber').value;
+    var printUrl = 'print.php?sumber=' + sumber;
+    location.href = printUrl;
+   }
+</script>
 
 <?php include '../template/footer.php';
 

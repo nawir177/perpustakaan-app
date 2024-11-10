@@ -45,6 +45,23 @@ function getFilter($table)
     return $rows;
 }
 
+function getFilterPemasukan(){
+   global $conn;
+   $query = "SELECT * FROM pemasukan";
+   $rows = [];
+
+   if(isset($_GET['sumber'])){
+      $sumber = mysqli_real_escape_string($conn, $_GET['sumber']);
+      $query .= " WHERE sumber = '$sumber'";
+   }
+
+   $result = mysqli_query($conn, $query);
+   while ($row = mysqli_fetch_assoc($result)) {
+      $rows[] = $row;
+   }
+   return $rows;
+}
+
 
 
 

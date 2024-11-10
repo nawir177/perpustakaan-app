@@ -4,7 +4,7 @@ session_start();
 include '../controller.php';
 $useId = $_SESSION['user'];
 $admin = show("user", $useId);
-$pemasukan = all('pemasukan');
+$pemasukan = getFilterPemasukan();
 $no = 1;
 $date = date('d/m/Y');
 $totalPemasukan = 0;

@@ -6,7 +6,7 @@ $id_peminjam = $_GET['id_peminjam'];
 $val = show("peminjaman", $id_peminjam);
 ?>
 <div class="container">
-   <div class="card col-8">
+   <div class="card col-12">
    <div class="card-header">
       <h3>Tambah Pengembalian Buku</h3>  
    </div>
@@ -28,13 +28,29 @@ $val = show("peminjaman", $id_peminjam);
                <label class="form-label" for="tanggalkembali">Tanggal Kembali</label>
                <input type="date" class="form-control" name="tanggal_kembali" id="tanggalkembali">
             </div>
+
+               <hr>
+               <h3 class="text-center">Denda dan Kondisi Buku</h5>
+           
             <div class="mb-3">
+               <label class="form-label" for="kondisi">Kondisi Buku (Opsional)</label>
+               <select name="kondisi" id="kondisi" class="form-select">
+                  <option value="rusak">Rusak</option>
+                  <option value="rusak sedikit">Rusak Sedikit</option>
+                  <option value="rusak parah">Rusak Parah</option>
+               </select>
+            </div>
+            <div class="mb-3">
+               <label class="form-label" for="keterangan">Keterangan (Opsional)</label>
+               <input type="text" class="form-control" name="keterangan" id="keterangan" >
+            </div>
+            <div class="mb-3 mt-4">
                <label class="form-label" for="judul">Denda Rusak (Opsional)</label>
                <input type="number" class="form-control" name="denda_rusak" id="denda" >
             </div>
             <input type="hidden" name="id_peminjaman" value="<?= $val['id']?>" >
             <input type="hidden" name="tanggal_target_kembali" value="<?=$val['tanggal_kembali']?>" >
-            <button class="btn btn-info" type="submit" name="tambah">Tambah Pengembalian</button>
+            <button class="btn btn-info" type="submit" name="tambah">Tambah Penge mbalian</button>
          </form>
 
       </div>
