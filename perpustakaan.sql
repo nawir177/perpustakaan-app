@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 07 Nov 2024 pada 01.51
+-- Waktu pembuatan: 11 Nov 2024 pada 00.57
 -- Versi server: 10.4.32-MariaDB
 -- Versi PHP: 8.0.30
 
@@ -134,10 +134,10 @@ CREATE TABLE `buku` (
 --
 
 INSERT INTO `buku` (`id`, `id_kategori`, `tanggal`, `judul`, `pengarang`, `penerbit`, `tahun_terbit`, `isbn`, `jumlah`, `lokasi`, `deskripsi`, `image`) VALUES
-(12, 1, '11/02/2024', 'matematika', 'Abdur Rahman As’ari, Mohammad Tohir, Erik Valentino, Zainul Imron, dan Ibnu Taufiq', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-984-3', 25, 'rak 1', 'Buku Matematika Kelas VII', '66c3d52ce6f12.jpeg'),
-(13, 1, '20/02/2024', 'Bahasa Indonesia ', 'Titik Harsiati, Agus Trianto, dan E. Kosasih', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-968-3', 18, 'rak 2', 'Buku Bahasa Indonesia Kelas VII', '66c3d5857353d.jpg'),
+(12, 1, '11/02/2024', 'matematika', 'Abdur Rahman As’ari, Mohammad Tohir, Erik Valentino, Zainul Imron, dan Ibnu Taufiq', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-984-3', 26, 'rak 1', 'Buku Matematika Kelas VII', '66c3d52ce6f12.jpeg'),
+(13, 1, '20/02/2024', 'Bahasa Indonesia ', 'Titik Harsiati, Agus Trianto, dan E. Kosasih', 'Pusat Kurikulum dan Perbukuan, Balitbang, Kemendikbud', '2017', '978-602-282-968-3', 19, 'rak 2', 'Buku Bahasa Indonesia Kelas VII', '66c3d5857353d.jpg'),
 (14, 1, '20/02/2024', 'Bahasa Inggris ', 'Ika Lestari Damayanti, Yusnita Febrianti, Pipit Prihartanti Suharto, Iyen Nurlaelawati, Aji Jehan Fe', 'Kementerian Pendidikan, Kebudayaan, Riset, dan Teknologi ', '2022', '978-602-244-884-6', 18, 'rak 1', 'Buku Bahasa Inggris Kelas 9', '66c3d5fb6d881.jpeg'),
-(18, 1, '23/07/2024', 'Ilmu Pengetahuan Alam', 'Cece Sutia, Victoriani Inabuy, Okky Fajar Tri Maryana,Budiyanti Dwi Hardanie, Sri Handayani Lestari', 'Pusat Perbukuan Badan Standar, Kurikulum, dan Asesmen Pendidikan  Kementerian Pendidikan, Kebudayaan', '2022', '978-602-244-383-4', 32, 'rak71', 'Buku Ilmu Pengetahuan Alam Kelas 9', '66c3d696564c1.jpeg'),
+(18, 1, '23/07/2024', 'Ilmu Pengetahuan Alam', 'Cece Sutia, Victoriani Inabuy, Okky Fajar Tri Maryana,Budiyanti Dwi Hardanie, Sri Handayani Lestari', 'Pusat Perbukuan Badan Standar, Kurikulum, dan Asesmen Pendidikan  Kementerian Pendidikan, Kebudayaan', '2022', '978-602-244-383-4', 31, 'rak71', 'Buku Ilmu Pengetahuan Alam Kelas 9', '66c3d696564c1.jpeg'),
 (19, 1, '04/08/2024', 'Ilmu Pengetahuan Sosial', 'Mohammad Rizky Satria, Sari Oktafiana, M. Nursa’ban, Supardi', 'Pusat Perbukuan Badan Standar, Kurikulum, dan Asesmen Pendidikan  Kementerian Pendidikan, Kebudayaan', '2022', ' 978-602-244-306-3', 2, 'rak1', 'Buku Ilmu Pengetahuan Sosial Kelas 9', '66c3d6e63247d.jpeg'),
 (22, 3, '25/08/2024', 'Bung Hatta dan Pendidikan Karakter', 'Dr.Silfa Hanani, M.Si', 'AR-RUZZ Media', '2018', '978-602-313-266-9', 11, 'rak1', '', '66ca98690aa1b.jpg');
 
@@ -240,7 +240,8 @@ INSERT INTO `kondisi_buku` (`id`, `id_buku`, `tanggal`, `kondisi`, `keterangan`,
 (5, 12, '2024-08-22', 'rusak sedikit', 'Lorem ipsum dolor sit amet consectetur adipiscing elit enim tempor diam sociis quisque, ut suspendisse aliquet et vestibulum aptent scelerisque per laoreet velit tempus, bibendum dui rhoncus netus facilisi neque sem tellus gravida tortor parturient. Auctor dignissim neque torquent intege', 2),
 (6, 12, '20/10/2023', 'rusak parah', 'edfsfd', 2),
 (8, 14, '2024-08-28', 'rusak', '', 3),
-(9, 12, '20/10/2023', 'rusak', '', 2);
+(9, 12, '20/10/2023', 'rusak', '', 2),
+(10, 12, '07/11/2024', 'rusak sedikit', 'terkena air', 1);
 
 -- --------------------------------------------------------
 
@@ -267,7 +268,10 @@ INSERT INTO `notifikasi` (`id`, `anggota_id`, `content`, `time`) VALUES
 (7, 22, 'Melakukan pengajuan peminjaman dengan judul buku Bahasa Indonesia ', '2024-10-31 08:10:50'),
 (8, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 00:03:42'),
 (9, 22, 'Buku dengan judul Bahasa Indonesia  telah dikembalikan', '2024-11-07 00:05:01'),
-(10, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 00:06:05');
+(10, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 00:06:05'),
+(11, 24, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 13:09:41'),
+(12, 22, 'Buku dengan judul Bahasa Indonesia  telah dikembalikan', '2024-11-07 13:10:41'),
+(13, 22, 'Buku dengan judul matematika telah dikembalikan', '2024-11-07 13:11:58');
 
 -- --------------------------------------------------------
 
@@ -305,7 +309,10 @@ INSERT INTO `pemasukan` (`id`, `id_peminjaman`, `id_buku`, `sumber`, `jumlah_den
 (25, 56, 12, 'denda peminjaman', 57000),
 (26, 35, 13, 'denda peminjaman', 6000),
 (27, 35, 13, 'denda peminjaman', 53000),
-(28, 51, 12, 'Denda Rusak', 20000);
+(28, 51, 12, 'Denda Rusak', 20000),
+(29, 53, 12, 'Denda Rusak', 3000),
+(30, 54, 13, 'Denda Rusak', 3000),
+(31, 55, 12, 'Denda Rusak', 1000000);
 
 -- --------------------------------------------------------
 
@@ -338,10 +345,12 @@ INSERT INTO `peminjaman` (`id`, `id_anggota`, `id_buku`, `tanggal`, `tanggal_kem
 (50, 22, 13, '28/08/2024', '2024-08-31', 'dikembalikan'),
 (51, 22, 12, '28/08/2024', '2024-08-31', 'dikembalikan'),
 (52, 22, 14, '28/08/2024', '2024-08-31', 'dikembalikan'),
-(53, 24, 12, '28/08/2024', '2024-08-31', 'dipinjam'),
-(54, 22, 13, '28/08/2024', '2024-08-31', 'dipinjam'),
-(55, 22, 12, '29/08/2024', '2024-09-01', 'dipinjam'),
-(56, 25, 12, '29/08/2024', '2024-09-01', 'dikembalikan');
+(53, 24, 12, '28/08/2024', '2024-08-31', 'dikembalikan'),
+(54, 22, 13, '28/08/2024', '2024-08-31', 'dikembalikan'),
+(55, 22, 12, '29/08/2024', '2024-09-01', 'dikembalikan'),
+(56, 25, 12, '29/08/2024', '2024-09-01', 'dikembalikan'),
+(57, 23, 12, '2024-11-07', '2024-11-11', 'dipinjam'),
+(58, 23, 18, '2024-11-07', '2024-11-11', 'dipinjam');
 
 -- --------------------------------------------------------
 
@@ -425,7 +434,10 @@ INSERT INTO `pengembalian` (`id`, `id_peminjaman`, `tanggal`, `status`, `denda`)
 (30, 56, '31/10/2024', 'Terlambat', 57000),
 (31, 49, '16/11/2024', 'Terlambat', 74000),
 (32, 50, '16/11/2024', 'Terlambat', 74000),
-(33, 51, '15/11/2024', 'Terlambat', 73000);
+(33, 51, '15/11/2024', 'Terlambat', 73000),
+(34, 53, '08/11/2024', 'Terlambat', 66000),
+(35, 54, '23/11/2024', 'Terlambat', 81000),
+(36, 55, '07/11/2024', 'Terlambat', 64000);
 
 -- --------------------------------------------------------
 
@@ -642,25 +654,25 @@ ALTER TABLE `kategori`
 -- AUTO_INCREMENT untuk tabel `kondisi_buku`
 --
 ALTER TABLE `kondisi_buku`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT untuk tabel `notifikasi`
 --
 ALTER TABLE `notifikasi`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT untuk tabel `pemasukan`
 --
 ALTER TABLE `pemasukan`
-  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 
 --
 -- AUTO_INCREMENT untuk tabel `peminjaman`
 --
 ALTER TABLE `peminjaman`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT untuk tabel `pengajuan`
@@ -678,7 +690,7 @@ ALTER TABLE `pengeluaran`
 -- AUTO_INCREMENT untuk tabel `pengembalian`
 --
 ALTER TABLE `pengembalian`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=34;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=37;
 
 --
 -- AUTO_INCREMENT untuk tabel `rekomendasi_ebook`
