@@ -27,7 +27,7 @@ function hitungDenda($tanggalTargetKembali, $tanggalKembali, $id_peminjaman, $id
    $selisihHari = $tanggalKembaliObj->diff($tanggalTargetKembaliObj)->days;
 
    // Tentukan aturan denda
-   $dendaPerHari = show('denda', 1)['value'];
+   $dendaPerHari = show('denda', 1)['nilai'];
 
    // Hitung denda hanya jika terlambat lebih dari 3 hari
    $denda = ($selisihHari > 3) ? ($selisihHari - 3) * $dendaPerHari : 0;
@@ -143,3 +143,37 @@ function setDenda($data)
       return 0;
    }
 }
+
+function selisihHari($targetKembali, $tanggalKembali)
+{
+ 
+   $targetKembali = ubahFormatTanggal($targetKembali);
+   $tanggalKembali = ubahFormatTanggal($tanggalKembali);
+
+   $tanggalKembali = DateTime::createFromFormat('d/m/Y', $tanggalKembali);
+   $targetKembali = DateTime::createFromFormat('d/m/Y', $targetKembali);
+
+   $selisihHari = $tanggalKembali->diff($targetKembali)->days;
+
+   return $selisihHari;
+
+}
+
+function ubahFormatTanggal($tanggal)
+{
+    // Periksa apakah tanggal sesuai format YYYY-MM-DD
+    if (preg_match('/^\d{4}-\d{2}-\d{2}$/', $tanggal)) {
+        // Ubah format tanggal menggunakan DateTime
+        $date = DateTime::createFromFormat('Y-m-d', $tanggal);
+        return $date->format('d/m/Y');
+    }
+
+    // Jika format tidak valid, kembalikan null atau pesan error
+    return $tanggal;
+}
+
+
+
+
+
+

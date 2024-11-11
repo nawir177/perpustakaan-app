@@ -1,6 +1,7 @@
 <?php
 // Pastikan path sesuai dengan struktur direktori proyek Anda
 session_start();
+include '../pengembalian/fungsi.php';
 include '../controller.php';
 $useId = $_SESSION['user'];
 $admin = show("user", $useId);
@@ -47,7 +48,7 @@ $date = date('d/m/Y');
    <h2 style="text-align: center;">LAPORAN PENGEMBALIAN BUKU</h2 <h2>
    </h2>
 
-   <table border="1" cellspacing="0" cellpadding="5" style="width: 100%;">
+   <table border="1" cellspacing="0" cellpadding="5" style="width: 100%; font-size: 12px;">
       <thead>
          <tr>
             <th>No</th>
@@ -56,6 +57,7 @@ $date = date('d/m/Y');
             <th>Judul</th>
             <th>NIS</th>
             <th>Nama Peminjam</th>
+            <th>Selisih Hari</th>
             <th>Status</th>
             <th>Denda</th>
 
@@ -66,13 +68,14 @@ $date = date('d/m/Y');
 
             <tr>
                <td><?= $no++; ?></td>
-               <td><?= hasOne($value['id_peminjaman'], "peminjaman", "tanggal"); ?></td>
+               <td><?= ubahFormatTanggal(hasOne($value['id_peminjaman'], "peminjaman", "tanggal")); ?></td>
                <td><?= dateFormat($value['tanggal']); ?></td>
                <td><?= hasOne(hasOne($value['id_peminjaman'], "peminjaman", "id_buku"), 'buku', 'judul'); ?></td>
                <td><?= hasOne(hasOne($value['id_peminjaman'], "peminjaman", "id_anggota"), 'anggota', 'nis'); ?></td>
                <td><?= hasOne(hasOne($value['id_peminjaman'], "peminjaman", "id_anggota"), 'anggota', 'nama'); ?></td>
+               <td><?= selisihHari(hasOne($value['id_peminjaman'], "peminjaman", "tanggal_kembali"),$value['tanggal']) ?></td>
                <td><?= $value['status'] ?></td>
-               <td><?= $value['denda'] ?></td>
+               <td>Rp.<?= number_format($value['denda'], 0, 0) ?></td>
 
             </tr>
          <?php endforeach  ?>
