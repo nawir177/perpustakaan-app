@@ -27,7 +27,7 @@ function hitungDenda($tanggalTargetKembali, $tanggalKembali, $id_peminjaman, $id
    $selisihHari = $tanggalKembaliObj->diff($tanggalTargetKembaliObj)->days;
 
    // Tentukan aturan denda
-   $dendaPerHari = 1000;
+   $dendaPerHari = show('denda', 1)['value'];
 
    // Hitung denda hanya jika terlambat lebih dari 3 hari
    $denda = ($selisihHari > 3) ? ($selisihHari - 3) * $dendaPerHari : 0;
@@ -48,10 +48,10 @@ function tambah($data)
    $id_peminjaman = $data['id_peminjaman'];
    $tanggal_target_kembali = $data['tanggal_target_kembali'];
    $status = status($tanggal_kembali, $tanggal_target_kembali);
-   $peminjaman = show('peminjaman',$id_peminjaman);
-   $buku = show('buku',$peminjaman['id_buku']);
+   $peminjaman = show('peminjaman', $id_peminjaman);
+   $buku = show('buku', $peminjaman['id_buku']);
    $jumlahBuku = $buku['jumlah'];
-   $plusJumlah = $jumlahBuku+1;
+   $plusJumlah = $jumlahBuku + 1;
    $idBuku = $peminjaman['id_buku'];
    $denda = hitungDenda($tanggal_target_kembali, $tanggal_kembali, $id_peminjaman, $idBuku);
    $qTambahJumlah = "UPDATE buku SET jumlah='$plusJumlah' where id = '$idBuku'";
@@ -62,17 +62,17 @@ function tambah($data)
    $tanggal_kembali = date('d/m/Y', strtotime($tanggal_kembali));
    $query = "INSERT into pengembalian VALUES('', '$id_peminjaman', '$tanggal_kembali', '$status','$denda')";
    $query2 = "UPDATE peminjaman SET status='dikembalikan' WHERE id ='$id_peminjaman'";
-   if($dendaRusak > 0){
+   if ($dendaRusak > 0) {
       $query3 = "INSERT INTO pemasukan VALUES('',$id_peminjaman, $idBuku,'Denda Rusak', $dendaRusak)";
       mysqli_query($conn, $query3);
    }
 
-   if($kondisi){
+   if ($kondisi) {
       $query4 = "INSERT INTO kondisi_buku VALUES('',$idBuku,'$tanggal_kembali', '$kondisi', '$keterangan', 1)";
       mysqli_query($conn, $query4);
    }
 
-   $idAnggota = show('peminjaman',$id_peminjaman)['id_anggota'];
+   $idAnggota = show('peminjaman', $id_peminjaman)['id_anggota'];
 
    setNotification($idAnggota, "Buku dengan judul $buku[judul] telah dikembalikan");
 
@@ -93,7 +93,7 @@ function edit($data)
    $tanggal_target_kembali = $data['tanggal_target_kembali'];
    $status = status($tanggal_kembali, $tanggal_target_kembali);
    $id_buku = $data['id_buku'];
-   $denda = hitungDenda($tanggal_target_kembali, $tanggal_kembali,$id_peminjaman, $id_buku);
+   $denda = hitungDenda($tanggal_target_kembali, $tanggal_kembali, $id_peminjaman, $id_buku);
 
    $tanggal_kembali = date('d/m/Y', strtotime($tanggal_kembali));
    $query = "UPDATE pengembalian SET id_peminjaman='$id_peminjaman', tanggal='$tanggal_kembali', status='$status', denda='$denda' WHERE id='$id_pengembalian'";
@@ -131,3 +131,15 @@ function setNotification($user, $content)
    // }
 }
 
+function setDenda($data)
+{
+   global $conn;
+   $denda = $data['nilai'];
+   $query = "UPDATE denda set nilai = $denda where id = 1";
+   mysqli_query($conn, $query);
+   if (mysqli_affected_rows($conn) > 0) {
+      return 1;
+   } else {
+      return 0;
+   }
+}

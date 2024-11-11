@@ -12,6 +12,7 @@ $no = 1;
       <div>
          <button type="button" class="btn btn-success mt-4" onclick="printData()">Cetak</button>
       </div>
+      <a href="setDenda.php" class="btn btn-primary my-4">Edit Nilai Denda</a>
    </div>
    <h1>DATA PENGEMBALIAN</h1>
    <form action="" method="get" class="mb-3" id="filterForm">

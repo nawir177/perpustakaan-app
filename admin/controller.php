@@ -30,6 +30,9 @@ function getFilter($table)
         $query .= " WHERE " . implode(" AND ", $conditions);
     }
 
+    // Sort by date in descending order
+    $query .= " ORDER BY id DESC";
+
     $rows = [];
     $result = mysqli_query($conn, $query);
 
@@ -44,6 +47,8 @@ function getFilter($table)
 
     return $rows;
 }
+
+
 
 function getFilterPemasukan(){
    global $conn;
